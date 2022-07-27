@@ -16,7 +16,7 @@ export const Login = (props) => {
           });
       
           const json =await response.json();
-          console.log(json);
+        //   console.log(json);
 
           if(json.sucess)
           {
@@ -40,9 +40,10 @@ export const Login = (props) => {
     }
 
     return (
-        <div>
+        <div className="mt-3">
             <form  onSubmit={handleSubmit}>
-                <div className="mb-3">
+            <h2>Login To Continue</h2>
+                <div className="mb-3 my-5">
                     <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp" />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
@@ -52,7 +53,7 @@ export const Login = (props) => {
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
         </div>
     )

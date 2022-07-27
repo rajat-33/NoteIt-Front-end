@@ -4,16 +4,24 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from "../context/notes/NoteContext"
 import Noteitem from './Noteitem';
 import Addnote from './Addnote';
+import { useNavigate } from 'react-router-dom';
 
 export const Notes = (props) => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
-
+    let navigate=useNavigate();
     //this useEffect fetch the notes whether edited, added or deleted whenever HTML is re-rendered
     useEffect(() => {
-        getNotes()
+        if(localStorage.getItem("token"))
+        {
+            getNotes();
+        }
+        else
+        {
+            navigate("/login");
+        }
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
     const ref = useRef(null)
     const refClose=useRef(null)

@@ -14,9 +14,11 @@ import Alert from './components/Alert';
 import { useState } from 'react';
 
 function App() {
+  
+  
   const [alert, setAlert] = useState(null);
   const showAlert=(message, type)=>{
-    console.log("Alert is here")
+    // console.log("Alert is here")
     setAlert({
       msg: message,
       type: type
